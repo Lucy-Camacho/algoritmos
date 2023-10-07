@@ -21,6 +21,8 @@ namespace List
   public:
     OrderedList();
     void insert(int val);
+    bool remove(int val);
+    search(int val);
     void display();
     ~OrderedList();
   };

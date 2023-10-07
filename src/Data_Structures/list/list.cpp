@@ -35,13 +35,61 @@ void List::OrderedList::insert(int val)
   }
 }
 
+bool List::OrderedList::remove(int val)
+{
+  if (!head)
+  {
+    return false;
+  }
+  
+  if (head->data == val)
+  {
+    Node* temp = head;
+    head = head->next;
+    delete temp;
+    return true;
+  }
+    
+  Node* current = head;
+  while (current->next && current->next->data != val)
+  {
+    current = current->next;
+  }
+  
+  if (current->next)
+  {
+    Node* temp = current->next;
+    current->next = current->next->next;
+    delete temp;
+    return true;
+  }
+  return false;
+}
+
+int List::OrderedList::search(int val)
+{
+  Node* current = head;
+  int index = 0;
+  while (current)
+  {
+    if (current->data == val)
+    {
+      return index;
+    }
+    current = current->next;
+    index++;
+  }
+  
+  return -1;  // Not found
+}
+
 void List::OrderedList::display()
 {
   Node* current = head;
   
   while (current)
   {
-    std::cout << current->data << " -> ";
+    std::cout << current->data << " ";
     current = current->next;
   }
 
