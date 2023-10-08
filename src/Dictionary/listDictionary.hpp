@@ -1,37 +1,37 @@
 #pragma once
 
-#include "../Data_Structures/array/array.hpp"
+#include "../Data_Structures/list/list.hpp"
 #include "BaseDictionary.hpp"
 
-struct KeyValuePair {
+struct KeyValuePairLL {
   int key;
   int value;
 
-  KeyValuePair(int k, int v)
+  KeyValuePairLL(int k, int v)
   {
     key = k;
     value = v;
   }
 
-  bool operator<(const KeyValuePair& other) const
+  bool operator<(const KeyValuePairLL& other) const
   {
     return key < other.key;
   }
 
-  bool operator>(const KeyValuePair& other) const
+  bool operator>(const KeyValuePairLL& other) const
   {
     return key > other.key;
   }
 };
 
-class ArrDictionary : public DictionaryBase
+class LinkedListDictionary : public DictionaryBase
 {
 private:
-  Array::OrderedList list;
+  List::OrderedList list;
 
 public:
-  ArrDictionary();
-  ~ArrDictionary();
+  LinkedListDictionary();
+  ~LinkedListDictionary();
   void insert(int key, int value);
   bool remove(int key);
   int search(int key);

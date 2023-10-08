@@ -28,6 +28,7 @@ namespace Hash
     void insert(int key, int value);
     bool remove(int key);
     int search(int key);
+    void clear();
     void display();
     ~HashTable();
   };

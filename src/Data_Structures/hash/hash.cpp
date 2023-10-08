@@ -67,6 +67,19 @@ int Hash::HashTable::search(int key) {
   return -1;  // Not found
 }
 
+void Hash::HashTable::clear()
+{
+  for (int i = 0; i < currentSize; i++)
+  {
+    for (auto& entry : table[i])
+    {
+      delete entry;
+    }
+    table[i].clear();
+  }
+  numElements = 0;
+  }
+
 void Hash::HashTable::display() {
   for (int i = 0; i < currentSize; i++)
   {
