@@ -22,7 +22,7 @@ namespace List
     OrderedList();
     void insert(int val);
     bool remove(int val);
-    search(int val);
+    int search(int val);
     void display();
     ~OrderedList();
   };
